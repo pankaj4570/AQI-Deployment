@@ -4,10 +4,6 @@ Created on Sun Apr 19 22:35:14 2020
 
 @author: PawanKumar
 """
-import os
-from intro_to_flask import app
-
-
 from flask import Flask, render_template, request
 import pandas as pd
 import pickle
@@ -40,7 +36,6 @@ def predict():
     return render_template('result.html', prediction = my_prediction)
 
 if __name__== '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(debug=True, host='0.0.0.0', port=port)
+    app.run(debug=True)
 
 
