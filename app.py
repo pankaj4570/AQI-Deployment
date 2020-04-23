@@ -37,8 +37,8 @@ def predict():
     #    my_prediction=my_prediction.tolist()
         return render_template('result.html', prediction = my_prediction)
     except:
-        return return_template('home.html', result='Please enter all values')
+        return render_template('home.html', result='Please enter all values')
 if __name__== '__main__':
-    app.run(debug=True, use_reloader= False)
+    app.run(debug=True)
 
 
