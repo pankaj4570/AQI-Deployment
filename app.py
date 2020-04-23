@@ -20,14 +20,15 @@ def home():
 
 @app.route('/predict', methods = ['POST'])
 def predict():
-    var1 = request.form['num1']
-    var2 = request.form['num2']
-    var3 = request.form['num3']
-    var4 = request.form['num4']
-    var5 = request.form['num5']
-    var6 = request.form['num6']
-    var7 = request.form['num7']
     try:
+        var1 = request.form['num1']
+        var2 = request.form['num2']
+        var3 = request.form['num3']
+        var4 = request.form['num4']
+        var5 = request.form['num5']
+        var6 = request.form['num6']
+        var7 = request.form['num7']
+    
         var_array = np.array([var1, var2, var3, var4, var5, var6, var7]).reshape(1,-1)
     
 #    df = pd.read_csv('/Users/pawanKumar/ML Notes/AQI Project/Data/Real-Data/Real_2014.csv')
