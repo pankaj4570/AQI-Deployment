@@ -21,13 +21,13 @@ def home():
 @app.route('/predict', methods = ['POST'])
 def predict():
     try:
-        var1 = request.form['num1']
-        var2 = request.form['num2']
-        var3 = request.form['num3']
-        var4 = request.form['num4']
-        var5 = request.form['num5']
-        var6 = request.form['num6']
-        var7 = request.form['num7']
+        var1 = float(request.form['num1'])
+        var2 = float(request.form['num2'])
+        var3 = float(request.form['num3'])
+        var4 = float(request.form['num4'])
+        var5 = float(request.form['num5'])
+        var6 = float(request.form['num6'])
+        var7 = float(request.form['num7'])
     
         var_array = np.array([var1, var2, var3, var4, var5, var6, var7]).reshape(1,-1)
     
@@ -37,7 +37,7 @@ def predict():
     #    my_prediction=my_prediction.tolist()
         return render_template('result.html', prediction = my_prediction)
     except:
-        return render_template('home.html', result='Please enter all values')
+        return render_template('home.html', result='Please enter correct values and do not leave empty')
 if __name__== '__main__':
     app.run(debug=True)
 
