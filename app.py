@@ -27,14 +27,16 @@ def predict():
     var5 = request.form['num5']
     var6 = request.form['num6']
     var7 = request.form['num7']
-    var_array = np.array([var1, var2, var3, var4, var5, var6, var7]).reshape(1,-1)
+    try:
+        var_array = np.array([var1, var2, var3, var4, var5, var6, var7]).reshape(1,-1)
     
 #    df = pd.read_csv('/Users/pawanKumar/ML Notes/AQI Project/Data/Real-Data/Real_2014.csv')
-    my_prediction = model.predict(var_array)
-    my_prediction = round(np.float64(my_prediction),2)
-#    my_prediction=my_prediction.tolist()
-    return render_template('result.html', prediction = my_prediction)
-
+        my_prediction = model.predict(var_array)
+        my_prediction = round(np.float64(my_prediction),2)
+    #    my_prediction=my_prediction.tolist()
+        return render_template('result.html', prediction = my_prediction)
+    except:
+        return return_template('home.html', result='Please enter all values')
 if __name__== '__main__':
     app.run(debug=True, use_reloader= False)
 
